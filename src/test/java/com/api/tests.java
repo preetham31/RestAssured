@@ -1,0 +1,25 @@
+package com.api;
+
+import com.api.models.request.LoginRequest;
+import com.api.services.AuthService;
+
+import io.restassured.response.Response;
+
+import org.testng.annotations.Test;
+
+
+public class tests {
+
+    @Test
+    public void login() {
+        LoginRequest loginRequest = new LoginRequest("uday12345", "uday1234");
+        AuthService authService = new AuthService();
+
+      Response response =  authService.login(loginRequest);
+        System.out.println(response.asPrettyString());
+    }
+
+
+
+}
+
