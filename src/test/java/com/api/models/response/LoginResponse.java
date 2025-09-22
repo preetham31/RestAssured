@@ -6,6 +6,23 @@ public class LoginResponse {
     private String token;
     private String type;
     private int id;
+    private String username;
+    private String email;
+    private List<String>roles;
+
+    public LoginResponse() {
+
+    }
+
+    public LoginResponse(String token, String type, int id, String username, String email, List<String> roles) {
+        super();
+        this.token = token;
+        this.type = type;
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.roles = roles;
+    }
 
     public String getToken() {
         return token;
@@ -43,6 +60,18 @@ public class LoginResponse {
         return email;
     }
 
+    @Override
+    public String toString() {
+        return "LoginResponse{" +
+                "token='" + token + '\'' +
+                ", type='" + type + '\'' +
+                ", id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", roles=" + roles +
+                '}';
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -55,7 +84,5 @@ public class LoginResponse {
         this.roles = roles;
     }
 
-    private String username;
-    private String email;
-    private List<String>roles  ;
+   ;
 }
