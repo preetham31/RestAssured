@@ -3,27 +3,21 @@ package com.api.tests;
 import com.api.models.request.LoginRequest;
 import com.api.models.response.LoginResponse;
 import com.api.services.AuthService;
-
+import com.api.services.UserManagementService;
 import io.restassured.response.Response;
-
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
-public class LoginApiTest {
+public class GetProfileRequestTest {
 
     @Test
-    public void login() {
-        LoginRequest loginRequest = new LoginRequest("preetham", "preetham");
+    public void getProfile() {
         AuthService authService = new AuthService();
-        Response response =  authService.login(loginRequest);
+        Response response= authService.login(new LoginRequest("preetham", "preetham"));
         LoginResponse loginResponse=response.as(LoginResponse.class);
-        System.out.println(response.asPrettyString());
         System.out.println(loginResponse.getToken());
 
-        Assert.assertEquals(loginResponse.getId(),2846);
+        UserManagementService userManagementService=new UserManagementService();
+        response= userManagementService.getProfile(loginResponse.getToken());
+        System.out.println(response.asPrettyString());
     }
-
-
-
 }
