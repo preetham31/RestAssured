@@ -24,7 +24,7 @@ jobs:
       run: mvn clean test -Dsuite=suite.xml 
       
     - name: Upload test results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4.6.2
       with:
         name: test-results
         path: logs/
