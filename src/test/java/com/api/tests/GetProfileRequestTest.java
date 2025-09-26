@@ -2,6 +2,7 @@ package com.api.tests;
 
 import com.api.models.request.LoginRequest;
 import com.api.models.response.LoginResponse;
+import com.api.models.response.UserResponse;
 import com.api.services.AuthService;
 import com.api.services.UserManagementService;
 import io.restassured.response.Response;
@@ -18,6 +19,7 @@ public class GetProfileRequestTest {
 
         UserManagementService userManagementService=new UserManagementService();
         response= userManagementService.getProfile(loginResponse.getToken());
-        System.out.println(response.asPrettyString());
+        UserResponse userResponse=response.as(UserResponse.class);
+        System.out.println(userResponse.getUsername());
     }
 }

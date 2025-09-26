@@ -7,9 +7,10 @@ import com.api.services.AuthService;
 import io.restassured.response.Response;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-
+@Listeners(com.api.listeners.TestListener.class)
 public class LoginApiTest {
 
     @Test
