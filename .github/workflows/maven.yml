@@ -21,6 +21,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn clean -Dsuite=suite.xml 
+      run: mvn clean test -Dsuite=suite.xml 
 
     
